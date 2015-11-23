@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Uri
 */
 $background-color: #3E4C3D;
+$footer-color: #597C84;
 $font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
 body {
@@ -17,12 +18,33 @@ body {
 }
 
 #footer {
-   position:fixed;
-   left: 50%;
-   color: white;
-   bottom:0px;
-   height:5%;
-   transform: translate(-50%, -50%);
+    position:fixed;
+    left: 50%;
+    color: $footer-color;
+    bottom:0px;
+    height:5%;
+    transform: translate(-50%, -50%);
 }
+
+/* unvisited link */
+a:link {
+    color: $footer-color;
+}
+
+/* visited link */
+a:visited {
+    color: $footer-color;
+}
+
+/* mouse over link */
+a:hover {
+    color: $footer-color;
+}
+
+/* selected link */
+a:active {
+    color: $footer-color;
+}
+
 
 

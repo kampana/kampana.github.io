@@ -15,9 +15,25 @@ body {
 #footer {
   position: fixed;
   left: 50%;
-  color: white;
+  color: #597C84;
   bottom: 0px;
   height: 5%;
   transform: translate(-50%, -50%); }
+
+/* unvisited link */
+a:link {
+  color: #597C84; }
+
+/* visited link */
+a:visited {
+  color: #597C84; }
+
+/* mouse over link */
+a:hover {
+  color: #597C84; }
+
+/* selected link */
+a:active {
+  color: #597C84; }
 
 /*# sourceMappingURL=main.css.map */
