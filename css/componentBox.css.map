@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;;;;;;AAYA,cAAe;EACX,OAAO,EAAE,IAAI;EAMb,wBAAU;IACN,UAAU,EAAE,KAAK;IACjB,KAAK,EAAE,GAAG;IACV,MAAM,EAZK,GAAG;IAad,UAAU,EAdR,EAAE;IAeJ,WAAW,EAfT,EAAE;EAkBR,wBAAU;IACN,WAAW,EAAE,EAAE;IACf,UAAU,EAAE,GAAG;IACf,KAAK,EAAE,GAAG;IACV,MAAM,EArBK,GAAG;IAsBd,UAAU,EAvBR,EAAE;IAwBJ,YAAY,EAxBV,EAAE",
+"sources": ["../scss/componentBox.scss"],
+"names": [],
+"file": "componentBox.css"
+}
