@@ -1,0 +1,12 @@
+<div>
+    <div ng-if="isDuringDragging()" ng-style="getDraggingClass()">A</div>
+    <div class="columns-class" ng-init="parentIndex = $index" ng-repeat="$index in getNumberOfRows() track by $index">
+        <span ng-mousedown="startDragging($event)" 
+              ng-mouseup="stopDragging()"
+              ng-mousemove="onMouseMove($event)"
+              ng-mouseleave="onMouseLeave()" 
+              ng-mouseover="onMouseOver($index, parentIndex)" 
+              ng-style="getCellStyle($index, parentIndex)" 
+              ng-repeat="$index in getNumberOfColumns() track by $index"></span>
+    </div>
+</div>

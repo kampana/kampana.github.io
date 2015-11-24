@@ -3,25 +3,19 @@
           type="image/png" 
           href="images/favicon.png" />
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
-    <link href="css/componentBox.css" rel="stylesheet" type="text/css"/>
+    <link href="css/dashBoard.css" rel="stylesheet" type="text/css"/>
     <script src="devComponents/angular/angular.js" type="text/javascript"></script>
     <script src="main.js" type="text/javascript"></script>
+    <script src="dashBoard/gridBox.js" type="text/javascript"></script>
     <head>
         <title>Uri's home page</title>
     </head>
 
     <body oncontextmenu="return false">
-        <div class="main" ng-app="app" ng-controller="myController">
+        <div class="main" ng-app="dashBoard" ng-controller="dashBoardController">
             <div class="component-box">
-                <div class="tool-box">Toolbox box</div> 
-                <div class="grid-box">
-                    <div class="columns-class" ng-init="parentIndex = $index" ng-repeat="$index in getNumberOfRows() track by $index">
-                        <span ng-mouseleave="onMouseLeave()" 
-                              ng-mouseover="onMouseOver($index, parentIndex)" 
-                              ng-style="getCellStyle($index, parentIndex)" 
-                              ng-repeat="$index in getNumberOfColumns() track by $index"></span>
-                    </div>
-                </div>
+                <grid-box class="tool-box" rows="3" columns="1" draggable="yes"></grid-box>
+                <grid-box class="grid-box" rows="2" columns="3" draggable="no"></grid-box>
             </div>
 
             <div id='footer'>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>    
