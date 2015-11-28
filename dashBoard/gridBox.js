@@ -6,63 +6,31 @@
  * TODO URI change templates
  * TODO URI add function() to wrap all functions
  */
-angular.module('dashBoard', [])
-        .controller('dashBoardController', ['$scope', function ($scope) {
-            }]).directive('gridBox', function () {
+var app = angular.module('dashBoard', []);
+angular.module('dashBoard').directive('gridBox', function () {
     return {
         restrict: 'E',
-        replace: true,
         templateUrl: 'dashBoard/gridBox.html',
+        replace: true,
         scope: {
             rows: "@",
             columns: "@",
             draggable: "@" // yes = dragging from, no = dropping to
         },
         link: function (scope) {
+
             scope.getNumberOfColumns = function () {
                 var numberOfColumns = [];
                 numberOfColumns.length = scope.columns;
                 return numberOfColumns;
             };
-            
-            var duringDragging = false;
-            
-            scope.isDuringDragging = function() {
-                return duringDragging;
-            };
-            
-            var mousePosX = 0;
-            var mousePosY = 0;
-            
-            scope.getDraggingClass = function () {
-                if (duringDragging) {
-                    console.log("during dragging");
-                    return {
-                        "background-color": "red",
-                        "width": "50px",
-                        "position": "absolute",
-                        "left": mousePosX+100+"px",
-                        "top": mousePosY+"px"
-                    };
-                } else {
-                    return {};
-                }
+
+            scope.startDragging = function (event) {
+                scope.$emit('gridBoxStartedDragging', 'draggingObjectX');
             };
 
-            scope.startDragging = function(event) {
-                duringDragging = true;
-                mousePosX = event.x;
-                mousePosY = event.y;
-            };
-            
-            scope.onMouseMove = function(event) {
-                mousePosX = event.x;
-                mousePosY = event.y;
-            };
-            
-            scope.stopDragging = function() {
-                console.log("stoppED!");
-                duringDragging = false;
+            scope.stopDragging = function () {
+                scope.$emit('gridBoxStoppedDragging');
             };
 
             scope.getNumberOfRows = function () {

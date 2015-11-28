@@ -1,0 +1,4 @@
+<div ng-mousedown="startDragging($event)" ng-mouseup="stopDragging()"  ng-mousemove="onMouseMove($event)">
+    <div ng-if="isDuringDragging()" ng-style="getDraggingClass()">AAA </div>
+    <ng-transclude>
+</div>
