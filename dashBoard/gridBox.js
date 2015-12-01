@@ -26,7 +26,9 @@ angular.module('dashBoard').directive('gridBox', function () {
             };
 
             scope.startDragging = function (event) {
-                scope.$emit('gridBoxStartedDragging', 'draggingObjectX');
+                if (scope.draggable === 'yes') {
+                    scope.$emit('gridBoxStartedDragging', 'draggingObjectX');
+                }
             };
 
             scope.stopDragging = function () {

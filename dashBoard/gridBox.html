@@ -1,6 +1,6 @@
 <div>
     <div class="columns-class" ng-init="parentIndex = $index" ng-repeat="$index in getNumberOfRows() track by $index">
-        <span ng-mousedown="startDragging($event)" 
+        <span id="draggableCell-{{draggable}}" ng-mousedown="startDragging($event)" 
               ng-mouseup="stopDragging()"
               ng-mouseleave="onMouseLeave()" 
               ng-mouseover="onMouseOver($index, parentIndex)" 

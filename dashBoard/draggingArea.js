@@ -8,17 +8,25 @@ angular.module('dashBoard').directive('draggingArea', function () {
         restrict: 'E',
         templateUrl: 'dashBoard/draggingArea.html',
         transclude: true,
-        link: function (scope) {
+        link: function (scope, element) {
 
             var mousePosX = -1;
             var mousePosY = -1;
             var duringDragging = false;
-
+            var draggedObject;
+            var gridBoxWidth = -1;
+            var gridBoxHeight = -1;
+            
             scope.$on('gridBoxStartedDragging', function (e, data) {
+                draggedObject = data;
+                // Calculate the size of the right hand cell
+                var gridBoxCell = angular.element(document.querySelector('#draggableCell-no'))[0];
+                gridBoxWidth = gridBoxCell.offsetWidth;
+                gridBoxHeight = gridBoxCell.offsetHeight;
             });
 
             scope.$on('gridBoxStoppedDragging', function () {
-                
+                draggedObject = null;
             });
 
             scope.startDragging = function (event) {
@@ -38,14 +46,24 @@ angular.module('dashBoard').directive('draggingArea', function () {
                 }
             };
 
+
             scope.getDraggingClass = function () {
-                if (duringDragging && mousePosX > 0) {
+                var multipleCellWidth = 1; // takes 1 cell in width
+                var multipleCellHeight = 1; // takes 1 cell in height
+                
+                if (scope.isDuringDragging()) {
+                    if (draggedObject === 'draggingObjectX') {
+                        multipleCellWidth = 2;
+                        multipleCellHeight = 2;
+                    }
                     return {
                         "background-color": "red",
-                        "width": "50px",
+                        "width": multipleCellWidth*gridBoxWidth-2+"px",
+                        "height": multipleCellHeight*gridBoxHeight-2+"px", //TODO URI handle use case when the taking the div too low
                         "position": "absolute",
                         "left": mousePosX + 10 + "px",
                         "top": mousePosY + "px",
+                        "opacity":"0.1"
                     };
                 } else {
                     return {};
@@ -53,7 +71,7 @@ angular.module('dashBoard').directive('draggingArea', function () {
             };
 
             scope.isDuringDragging = function () {
-                return duringDragging && mousePosX > 0;
+                return duringDragging && mousePosX > 0 && draggedObject !== null;
             };
 
         }
