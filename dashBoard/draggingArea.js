@@ -1,3 +1,4 @@
+"use strict";
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,10 +24,12 @@ angular.module('dashBoard').directive('draggingArea', function () {
                 var gridBoxCell = angular.element(document.querySelector('#draggableCell-no'))[0];
                 gridBoxWidth = gridBoxCell.offsetWidth;
                 gridBoxHeight = gridBoxCell.offsetHeight;
+                scope.$broadcast('destinationDropping', data);
             });
 
             scope.$on('gridBoxStoppedDragging', function () {
                 draggedObject = null;
+                scope.$broadcast('destinationStoppedDropping');
             });
 
             scope.startDragging = function (event) {
@@ -48,21 +51,16 @@ angular.module('dashBoard').directive('draggingArea', function () {
 
 
             scope.getDraggingClass = function () {
-                var multipleCellWidth = 1; // takes 1 cell in width
-                var multipleCellHeight = 1; // takes 1 cell in height
-                
                 if (scope.isDuringDragging()) {
-                    if (draggedObject === 'draggingObjectX') {
-                        multipleCellWidth = 2;
-                        multipleCellHeight = 2;
-                    }
+                    var multipleCellWidth = draggedObject.multipleCellWidth;
+                    var multipleCellHeight = draggedObject.multipleCellHeight;
                     return {
                         "background-color": "red",
                         "width": multipleCellWidth*gridBoxWidth-2+"px",
                         "height": multipleCellHeight*gridBoxHeight-2+"px", //TODO URI handle use case when the taking the div too low
                         "position": "absolute",
                         "left": mousePosX + 10 + "px",
-                        "top": mousePosY + "px",
+                        "top": mousePosY + 10 + "px",
                         "opacity":"0.1"
                     };
                 } else {

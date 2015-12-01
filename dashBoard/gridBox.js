@@ -1,3 +1,4 @@
+"use strict";
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,6 +20,8 @@ angular.module('dashBoard').directive('gridBox', function () {
         },
         link: function (scope) {
 
+            var draggingObject = {};
+
             scope.getNumberOfColumns = function () {
                 var numberOfColumns = [];
                 numberOfColumns.length = scope.columns;
@@ -26,10 +29,26 @@ angular.module('dashBoard').directive('gridBox', function () {
             };
 
             scope.startDragging = function (event) {
-                if (scope.draggable === 'yes') {
-                    scope.$emit('gridBoxStartedDragging', 'draggingObjectX');
+                if (scope.draggable === 'yes') { // the left hand size grid
+                    draggingObject = {
+                        multipleCellWidth: 2,
+                        multipleCellHeight: 1
+                    };
+
+                    scope.$emit('gridBoxStartedDragging', draggingObject);
                 }
             };
+
+            if (scope.draggable === 'no') { // the "droppable" grid, the right hand side
+                scope.$on('destinationDropping', function (e, data) {
+                    draggingObject.multipleCellWidth = data.multipleCellWidth;
+                    draggingObject.multipleCellHeight = data.multipleCellHeight;
+                });
+
+                scope.$on('destinationStoppedDropping', function () {
+                    delete draggingObject.multipleCellWidth;
+                });
+            }
 
             scope.stopDragging = function () {
                 scope.$emit('gridBoxStoppedDragging');
@@ -54,8 +73,17 @@ angular.module('dashBoard').directive('gridBox', function () {
             };
 
             scope.getCellStyle = function (x, y) {
+                var highlightX = 1;
+                var highlightY = 1;
+                if (angular.isDefined(draggingObject.multipleCellWidth) && scope.draggable === 'no') {
+                    highlightX = draggingObject.multipleCellWidth;
+                    highlightY = draggingObject.multipleCellHeight;
+                }
+
                 var backgroundColor = "#4F5D6A"; //TODO URI how to make it from css
-                if (x === overOnX && y === overOnY) {
+                if (x >= overOnX && x < overOnX + highlightX && overOnX + highlightX <= scope.columns &&
+                        y >= overOnY && y < overOnY + highlightY && overOnY + highlightY <= scope.rows)
+                {
                     backgroundColor = "#316777";
                 }
                 var height = 100 / scope.rows + "%";
