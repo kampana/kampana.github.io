@@ -59,8 +59,8 @@ angular.module('dashBoard').directive('draggingArea', function () {
                         "width": multipleCellWidth*gridBoxWidth-2+"px",
                         "height": multipleCellHeight*gridBoxHeight-2+"px", //TODO URI handle use case when the taking the div too low
                         "position": "absolute",
-                        "left": mousePosX + 10 + "px",
-                        "top": mousePosY + 10 + "px",
+                        "left": mousePosX + 50 + "px",
+                        "top": mousePosY + 50 + "px",
                         "opacity":"0.1"
                     };
                 } else {
