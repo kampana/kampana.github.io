@@ -1,10 +1,14 @@
 <div>
     <div class="columns-class" ng-init="parentIndex = $index" ng-repeat="$index in getNumberOfRows() track by $index">
-        <span id="draggableCell-{{draggable}}" ng-mousedown="startDragging($event)" 
+        <span id="draggableCell-{{draggable}}-and-isDropped-{{isDropped($index, parentIndex)}}" ng-mousedown="startDragging($event)"
               ng-mouseup="stopDragging()"
               ng-mouseleave="onMouseLeave()" 
-              ng-mouseover="onMouseOver($index, parentIndex)" 
+              ng-mouseover="onMouseOver($index, parentIndex)"
+              ng-show="isShowing($index, parentIndex)"
               ng-style="getCellStyle($index, parentIndex)" 
-              ng-repeat="$index in getNumberOfColumns() track by $index"></span>
+              ng-repeat="$index in getNumberOfColumns() track by $index">
+            <span>{{$index}},{{parentIndex}}</span>
+        </span>
+        
     </div>
 </div>

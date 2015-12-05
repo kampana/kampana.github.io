@@ -17,19 +17,22 @@ angular.module('dashBoard').directive('draggingArea', function () {
             var draggedObject;
             var gridBoxWidth = -1;
             var gridBoxHeight = -1;
-            
+
             scope.$on('gridBoxStartedDragging', function (e, data) {
                 draggedObject = data;
                 // Calculate the size of the right hand cell
-                var gridBoxCell = angular.element(document.querySelector('#draggableCell-no'))[0];
+                var gridBoxCell = angular.element(document.querySelector('#draggableCell-no-and-isDropped-no'))[0];
                 gridBoxWidth = gridBoxCell.offsetWidth;
                 gridBoxHeight = gridBoxCell.offsetHeight;
                 scope.$broadcast('destinationDropping', data);
             });
 
             scope.$on('gridBoxStoppedDragging', function () {
-                draggedObject = null;
-                scope.$broadcast('destinationStoppedDropping');
+                // Make sure first we dont just click on the droppable cell
+                if (angular.isDefined(draggedObject) && draggedObject !== null) {
+                    draggedObject = null;
+                    scope.$broadcast('objectDropped');
+                }
             });
 
             scope.startDragging = function (event) {
@@ -56,12 +59,12 @@ angular.module('dashBoard').directive('draggingArea', function () {
                     var multipleCellHeight = draggedObject.multipleCellHeight;
                     return {
                         "background-color": "red",
-                        "width": multipleCellWidth*gridBoxWidth-2+"px",
-                        "height": multipleCellHeight*gridBoxHeight-2+"px", //TODO URI handle use case when the taking the div too low
+                        "width": multipleCellWidth * gridBoxWidth - 2 + "px",
+                        "height": multipleCellHeight * gridBoxHeight - 2 + "px",
                         "position": "absolute",
                         "left": mousePosX + 50 + "px",
                         "top": mousePosY + 50 + "px",
-                        "opacity":"0.1"
+                        "opacity": "0.1"
                     };
                 } else {
                     return {};
