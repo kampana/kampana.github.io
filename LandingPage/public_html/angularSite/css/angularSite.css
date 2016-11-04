@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 23, 2015, 1:12:06 PM
+    Author     : Uri
+*/
+body {
+  background: #3E4C3D;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 100;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+#introMessage {
+    margin-left: 1%;
+    color: cornflowerblue;
+}
+
+#footer {
+  position: fixed;
+  left: 50%;
+  color: #597C84;
+  bottom: 0px;
+  height: 5%;
+  transform: translate(-50%, -50%); }
+
+/* unvisited link */
+a:link {
+  color: #597C84; }
+
+/* visited link */
+a:visited {
+  color: #597C84; }
+
+/* mouse over link */
+a:hover {
+  color: #597C84; }
+
+/* selected link */
+a:active {
+  color: #597C84; }
+
+/*# sourceMappingURL=main.css.map */
