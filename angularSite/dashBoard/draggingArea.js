@@ -54,7 +54,7 @@ angular.module('dashBoard').directive('draggingArea', function () {
 
 
             scope.getDraggingClass = function () {
-                if (scope.isDuringDragging()) {
+                if (draggedObject && scope.isDuringDragging()) {
                     var multipleCellWidth = draggedObject.multipleCellWidth;
                     var multipleCellHeight = draggedObject.multipleCellHeight;
                     return {
