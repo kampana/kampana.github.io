@@ -8,12 +8,74 @@
     <script src="main.js" type="text/javascript"></script>
     <script src="dashBoard/gridBox.js" type="text/javascript"></script>
     <script src="dashBoard/draggingArea.js" type="text/javascript"></script>
+    
+  
+    <style>
+#animationDiv {
+   
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    position: relative;
+    -webkit-animation-name: animationBox; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: animationBox;
+    animation-duration: 1s;
+     display: table;
+}
+
+button {
+    padding:  1em;
+    width: 20em;
+    border-radius: 0.5em;
+    background: gray;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+    font-size: 1em;
+    font-family: "Verdana", Times, serif;
+}
+
+button:hover {
+    background: rosybrown;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animationBox {
+    0%   { left:100%; top:0px;}
+    
+    50%  { left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes animationBox {
+    0%   { left:100%; top:0px;}
+    
+    100%  {left:0px; top:0px;}
+   
+}
+    </style>
+    
     <head>
         <title>Uri's home page</title>
     </head>
 
     <body oncontextmenu="return false">
-        <div class="main" ng-app="dashBoard">
+        <div id="animationDiv">
+            <div align="center" style="height: 50%; display: table-cell;vertical-align: middle;">
+            <button type="button" >ReactJS</button>
+            <div style="margin-bottom: 5%"></div>
+            <button type="button">AngularJS (alpha version)</button>
+
+            </div>
+            
+        </div>
+       
+<!--        <div class="main" ng-app="dashBoard">
             <dragging-area>
                 <div class="component-box">
                     <grid-box class="tool-box" rows="3" columns="1" draggable="yes"></grid-box>
@@ -23,7 +85,7 @@
 
 
             <div id='footer'>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>    
-        </div>
+        </div>  -->
 
     </body>
 </html>
