@@ -62,8 +62,8 @@ angular.module('dashBoard').directive('draggingArea', function () {
                         "width": multipleCellWidth * gridBoxWidth - 2 + "px",
                         "height": multipleCellHeight * gridBoxHeight - 2 + "px",
                         "position": "absolute",
-                        "left": mousePosX + 50 + "px",
-                        "top": mousePosY + 50 + "px",
+                        "left": mousePosX + 5 + "px",
+                        "top": mousePosY + 5 + "px",
                         "opacity": "0.1"
                     };
                 } else {
