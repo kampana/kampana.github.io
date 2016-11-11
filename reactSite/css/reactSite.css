@@ -20,6 +20,9 @@ body {
 
 .title {
     position: relative;
+    color: black;
+    text-align: center;
+    line-height: 2em;
     -moz-border-radius: 0 0 0 35px;
     -webkit-border-radius: 15px 15px 0 0;
     height: 2em;
@@ -56,11 +59,11 @@ body {
 }
 
 .content {
-     position: relative;
+    position: relative;
     color: #3E4C3D;
-    background-color: white;
     width: 15em;
     height: 0px;
+    padding-top: 10px;
 }
 
 .animation-content {
@@ -92,5 +95,6 @@ body {
         -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
         box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
         color: black;
+        background-color: white;
     }
 }

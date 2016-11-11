@@ -21,7 +21,7 @@ export default class ContentBox extends React.Component {
 
         return (
                 <div onClick={this.handleClick.bind(this)} >
-                    <div className={this.state.titleClass}></div>
+                    <div className={this.state.titleClass}>Full Stack Developer</div>
                     <div className={this.state.contentClass}>
                         <ul>{this.listItems}</ul>
                     </div>
