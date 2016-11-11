@@ -1,11 +1,13 @@
 import React from 'react';
+import ContentBox from './components/ContentBox.jsx'
 
-class App extends React.Component {
+        export default class App extends React.Component {
     render() {
         return (
-                <div id="box">Uri
-                </div>);
+                <div id="centerThem">
+                    <ContentBox content={['uri','shmueli','yes']}></ContentBox>
+                </div>
+                );
     }
-};
-
-export default App;
+}
+;

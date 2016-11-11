@@ -1,20 +1,96 @@
 body {
-  background: #3E4C3D;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 100;
-  overflow: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+    background: #3E4C3D;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 100;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    }
 
-#box {
+.animation-title {
+    -webkit-animation-name: title-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: title-animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; 
+}
+
+.title {
+    position: relative;
     -moz-border-radius: 0 0 0 35px;
     -webkit-border-radius: 15px 15px 0 0;
-    border: 2px solid #80bfff;
-    height: 20px;
-    width: 200px;
+    height: 2em;
+    width: 15em;
     background: #80bfff;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes title-animation {
+    /* TODO URI */
+}
+
+/* Standard syntax */
+@keyframes title-animation {
+    from {
+        top: 0px;
+        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    }
+    to {top: -4.5em;
+        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    }
+}
+
+#centerThem {
+    transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.content {
+     position: relative;
+    color: #3E4C3D;
+    background-color: white;
+    width: 15em;
+    height: 0px;
+}
+
+.animation-content {
+    -webkit-animation-name: content-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: content-animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; 
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes content-animation {
+        /* TODO URI */
+}
+
+/* Standard syntax */
+@keyframes content-animation {
+    from {
+        height: 0px; top: 0;
+        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+        color: #3E4C3D;
+    }
+    to {
+        height: 8em; top: -4em;
+        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+        color: black;
+    }
 }
