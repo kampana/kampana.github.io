@@ -4,6 +4,7 @@ export default class ContentBox extends React.Component {
         super(props);
         this.state = {
             titleClass: 'title',
+            contentWrapperClass: 'content-wrapper',
             contentClass: 'content'
         }
 
@@ -14,7 +15,7 @@ export default class ContentBox extends React.Component {
 
     handleClick() {
         this.setState({titleClass: 'title animation-title'});
-        this.setState({contentClass: 'content animation-content'});
+        this.setState({contentWrapperClass: 'content-wrapper animation-content-wrapper'});
     }
 
     render() {
@@ -22,8 +23,10 @@ export default class ContentBox extends React.Component {
         return (
                 <div onClick={this.handleClick.bind(this)} >
                     <div className={this.state.titleClass}>Full Stack Developer</div>
-                    <div className={this.state.contentClass}>
-                        <ul>{this.listItems}</ul>
+                    <div className={this.state.contentWrapperClass}>
+                        <div>
+                                <ul>{this.listItems}</ul>
+                        </div>
                     </div>
                 </div>
                 );
