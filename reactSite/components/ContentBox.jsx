@@ -4,26 +4,58 @@ export default class ContentBox extends React.Component {
         super(props);
         this.state = {
             titleClass: 'title',
-            contentClass: 'content'
+            contentWrapperClass: 'content-wrapper',
+            contentClass: 'content',
+            isExpanded: false
         }
 
         this.listItems = this.props.content.map((item) =>
             <li key={item.toString()}>{item}</li>
         )
+
+        this.title = this.props.title;
     }
 
     handleClick() {
-        this.setState({titleClass: 'title animation-title'});
-        this.setState({contentClass: 'content animation-content'});
+        this.props.onClick(this);
     }
+    
+    doExpand() {
+        if (!this.state.isExpanded) {
+            console.log("doExpand");
+            this.setState({isExpanded : true});
+            this.setState({titleClass: 'title animation-title'});
+            this.setState({contentWrapperClass: 'content-wrapper animation-content-wrapper'});
+        }
+    }
+    
+    doSwitchState() {
+        if (this.state.isExpanded) {
+            this.doCollapse();
+        } else {
+            this.doExpand();
+        }
+    }
+    
+    doCollapse() {
+        if (this.state.isExpanded) {
+            this.setState({isExpanded : false});
+            console.log("doCollapse");
+            this.setState({titleClass: 'title backward-title'});
+            this.setState({contentWrapperClass: 'content-wrapper backward-content'});
+        }
+    }
+
 
     render() {
 
         return (
                 <div onClick={this.handleClick.bind(this)} >
-                    <div className={this.state.titleClass}>Full Stack Developer</div>
-                    <div className={this.state.contentClass}>
-                        <ul>{this.listItems}</ul>
+                    <div className={this.state.titleClass}>{this.title}</div>
+                    <div className={this.state.contentWrapperClass}>
+                        <div>
+                                <ul>{this.listItems}</ul>
+                        </div>
                     </div>
                 </div>
                 );

@@ -18,6 +18,15 @@ body {
     animation-fill-mode: forwards; 
 }
 
+.backward-title {
+      -webkit-animation-name: title-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: title-animation;
+    animation-duration: 1s;
+   -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+   animation-direction: alternate-reverse;
+}
+
 .title {
     position: relative;
     color: black;
@@ -75,6 +84,15 @@ body {
     animation-fill-mode: forwards; 
 }
 
+.backward-content {
+    -webkit-animation-name: content-wrapper-animation; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: content-wrapper-animation;
+    animation-duration: 1s;
+   -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+   animation-direction: alternate-reverse;
+
+}
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes content-wrapper-animation {
