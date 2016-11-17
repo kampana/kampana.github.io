@@ -4,9 +4,8 @@ export default class ContentBox extends React.Component {
         super(props);
         this.state = {
             titleClass: 'title',
-            contentWrapperClass: 'content-wrapper',
             contentClass: 'content',
-            isExpanded: false
+            isExpanded: false,
         }
 
         this.listItems = this.props.content.map((item) =>
@@ -16,19 +15,27 @@ export default class ContentBox extends React.Component {
         this.title = this.props.title;
     }
 
+    eventTriggered(selectedContentBox) {
+        if (selectedContentBox == this) {
+            this.doSwitchState();
+        } else {
+            this.doCollapse();
+        }
+    }
+
     handleClick() {
         this.props.onClick(this);
     }
-    
+
     doExpand() {
         if (!this.state.isExpanded) {
-            console.log("doExpand");
-            this.setState({isExpanded : true});
-            this.setState({titleClass: 'title animation-title'});
-            this.setState({contentWrapperClass: 'content-wrapper animation-content-wrapper'});
+            console.log("doExpand on " + this.title);
+            this.setState({isExpanded: true});
+            this.setState({titleClass: 'title title-animation'});
+            this.setState({contentClass: 'content content-animation'});
         }
     }
-    
+
     doSwitchState() {
         if (this.state.isExpanded) {
             this.doCollapse();
@@ -36,27 +43,27 @@ export default class ContentBox extends React.Component {
             this.doExpand();
         }
     }
-    
+
     doCollapse() {
         if (this.state.isExpanded) {
-            this.setState({isExpanded : false});
-            console.log("doCollapse");
-            this.setState({titleClass: 'title backward-title'});
-            this.setState({contentWrapperClass: 'content-wrapper backward-content'});
+            this.setState({isExpanded: false});
+            console.log("doCollapse on " + this.title);
+            this.setState({titleClass: 'title title-backward-animation'});
+            this.setState({contentClass: 'content content-backward-animation'});
         }
     }
-
 
     render() {
 
         return (
                 <div onClick={this.handleClick.bind(this)} >
                     <div className={this.state.titleClass}>{this.title}</div>
-                    <div className={this.state.contentWrapperClass}>
+                    <div className={this.state.contentClass}>
                         <div>
-                                <ul>{this.listItems}</ul>
+                            <ul>{this.listItems}</ul>
                         </div>
                     </div>
+                
                 </div>
                 );
     }

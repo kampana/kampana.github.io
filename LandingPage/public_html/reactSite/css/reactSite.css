@@ -28,6 +28,7 @@ body {
     -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     top: -0.5em;
+    margin-top: 0.5em;
     -webkit-transition: all 1s;
     transition: all 1s;
 }
@@ -60,6 +61,7 @@ body {
     opacity: 0%;
     height: 0;
     top: 0;
+    padding-bottom : 0;
 }
 
 .content-animation {
@@ -68,6 +70,7 @@ body {
     -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     background-color: white;
+    margin-bottom: 0.5em;
 
     -webkit-transition: all 1s;
     transition: all 1s;

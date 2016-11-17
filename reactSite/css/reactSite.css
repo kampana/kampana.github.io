@@ -8,23 +8,6 @@ body {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    }
-
-.animation-title {
-    -webkit-animation-name: title-animation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-    animation-name: title-animation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards; 
-}
-
-.backward-title {
-      -webkit-animation-name: title-animation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-    animation-name: title-animation;
-    animation-duration: 1s;
-   -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
-   animation-direction: alternate-reverse;
 }
 
 .title {
@@ -37,26 +20,28 @@ body {
     height: 2em;
     width: 15em;
     background: #80bfff;
+    top: 0;
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes title-animation {
-    /* TODO URI */
+.title-animation {
+    -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    top: -0.5em;
+    margin-top: 0.5em;
+    -webkit-transition: all 1s;
+    transition: all 1s;
 }
 
-/* Standard syntax */
-@keyframes title-animation {
-    from {
-        top: 0px;
-        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-    }
-    to {top: -4.5em;
-        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-    }
+
+
+.title-backward-animation{
+    -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    top: 0em;
+    -webkit-transition: all 1s;
+    transition: all 1s;
 }
 
 #centerThem {
@@ -67,53 +52,38 @@ body {
     left: 50%;
 }
 
-.content-wrapper {
+.content {
     position: relative;
     color: #3E4C3D;
     width: 15em;
     height: 0px;
-    padding-top: 10px;
+    padding-top: 0.5em;
     opacity: 0%;
+    height: 0;
+    top: 0;
+    padding-bottom : 0;
 }
 
-.animation-content-wrapper {
-    -webkit-animation-name: content-wrapper-animation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-    animation-name: content-wrapper-animation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards; 
+.content-animation {
+    height: 8em; 
+    -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    background-color: white;
+    margin-bottom: 0.5em;
+
+    -webkit-transition: all 1s;
+    transition: all 1s;
 }
 
-.backward-content {
-    -webkit-animation-name: content-wrapper-animation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-    animation-name: content-wrapper-animation;
-    animation-duration: 1s;
-   -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
-   animation-direction: alternate-reverse;
-
+.content-backward-animation {
+    height: 0; 
+    top: 0;
+    -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
+    
+    -webkit-transition: all 1s;
+    transition: all 1s;
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes content-wrapper-animation {
-        /* TODO URI */
-}
-
-/* Standard syntax */
-@keyframes content-wrapper-animation {
-    from {
-        height: 0px; 
-        top: 0;
-        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.0);
-    }
-    to {
-        height: 8em; 
-        top: -4em;
-        -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-        -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-        box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-        background-color: white;
-    }
-}
