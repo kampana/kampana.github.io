@@ -10,9 +10,6 @@ export default class App extends React.Component {
         this.contentBoxesInformation = [{
                 title: 'abc',
                 content: ['2016 - Present: Panaya', '2008-2016: IBM']
-            }, {
-                title: 'def',
-                content: ['2016 - Present: Panaya', '2008-2016: IBM']                
             }
         ];
         this.contentBoxesInformation.forEach(c => {
