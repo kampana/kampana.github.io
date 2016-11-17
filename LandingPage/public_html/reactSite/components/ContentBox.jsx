@@ -6,7 +6,7 @@ export default class ContentBox extends React.Component {
             titleClass: 'title',
             contentWrapperClass: 'content-wrapper',
             contentClass: 'content',
-            isExpanded: false
+            isExpanded: false,
         }
 
         this.listItems = this.props.content.map((item) =>
@@ -15,6 +15,14 @@ export default class ContentBox extends React.Component {
 
         this.title = this.props.title;
     }
+    
+    eventTriggered(selectedContentBox) {
+        if (selectedContentBox == this) {
+            this.doSwitchState();
+        } else {
+            this.doCollapse();
+        }
+    }
 
     handleClick() {
         this.props.onClick(this);
@@ -22,7 +30,7 @@ export default class ContentBox extends React.Component {
     
     doExpand() {
         if (!this.state.isExpanded) {
-            console.log("doExpand");
+            console.log("doExpand on " + this.title);
             this.setState({isExpanded : true});
             this.setState({titleClass: 'title animation-title'});
             this.setState({contentWrapperClass: 'content-wrapper animation-content-wrapper'});
@@ -40,7 +48,7 @@ export default class ContentBox extends React.Component {
     doCollapse() {
         if (this.state.isExpanded) {
             this.setState({isExpanded : false});
-            console.log("doCollapse");
+            console.log("doCollapse on " + this.title);
             this.setState({titleClass: 'title backward-title'});
             this.setState({contentWrapperClass: 'content-wrapper backward-content'});
         }
