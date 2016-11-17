@@ -14,6 +14,7 @@ export default class ContentBox extends React.Component {
 
         this.title = this.props.title;
         this.years = this.props.years;
+        this.imageName = "images/" + this.props.imageName + ".png";
     }
 
     eventTriggered(selectedContentBox) {
@@ -30,7 +31,6 @@ export default class ContentBox extends React.Component {
 
     doExpand() {
         if (!this.state.isExpanded) {
-            console.log("doExpand on " + this.title);
             this.setState({isExpanded: true});
             this.setState({titleClass: 'title title-animation'});
             this.setState({contentClass: 'content content-animation'});
@@ -48,7 +48,6 @@ export default class ContentBox extends React.Component {
     doCollapse() {
         if (this.state.isExpanded) {
             this.setState({isExpanded: false});
-            console.log("doCollapse on " + this.title);
             this.setState({titleClass: 'title title-backward-animation'});
             this.setState({contentClass: 'content content-backward-animation'});
         }
@@ -59,10 +58,10 @@ export default class ContentBox extends React.Component {
         return (
                 <div onClick={this.handleClick.bind(this)} >
                     <div className={this.state.titleClass}>
-                        <span style={{display:'inline-block', width:'1px'}}>{this.years}</span>
-                        <span style={{fontWeight: 'bold', marginLeft: '4em'}}>{this.title}</span>
-                        <span style={{float: 'right'}}>
-                            <img src="panaya.png" width="100em"/>            
+                        <span style={{width: '8em'}}>{this.years}</span>
+                        <span style={{fontWeight: 'bold'}}>{this.title}</span>
+                        <span style={{float:'right'}}>
+                            <img src={this.imageName} width="100em"/>            
                         </span>
                     </div>
                     <div className={this.state.contentClass}>
@@ -72,6 +71,6 @@ export default class ContentBox extends React.Component {
                     </div>
                 
                 </div>
-                        );
-            }
-        };
+                            );
+                }
+            };

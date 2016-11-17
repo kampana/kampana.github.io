@@ -25,6 +25,10 @@ body {
     top: 0;
 }
 
+span {
+    display: inline-block;
+}
+
 .title-animation {
     -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);

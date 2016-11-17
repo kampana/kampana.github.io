@@ -8,24 +8,32 @@ import ContentBox from './components/ContentBox.jsx'
         this.contentBoxesHTML = [];
         this.contentBoxes = [];
         this.contentBoxesInformation = [{
-                title: '2016 - Present: Full Stack Developer',
-                content: ['JAVA', 'Angular','Spring / Hibernate', 'C#']
+                years: '2016 - Present',
+                title: 'Full Stack Developer',
+                content: ['JAVA', 'Angular','Spring / Hibernate', 'C#'],
+                imageName: 'panaya'
             },
             {
-                title: '2013 - 2016: Team Lead at IBM - XIV',
-                content: ['Angular', 'JAVA']
+                years: '2013-2016',
+                title: 'Team Lead at IBM - XIV',
+                content: ['Angular', 'JAVA'],
+                imageName: 'ibm'
             },
             {
-                title: '2010 - 2013: Team Lead at IBM - Diligent',
-                content: ['JAVA', 'SWING']
+                years: '2010-2013',
+                title: 'Team Lead at IBM - Diligent',
+                content: ['JAVA', 'SWING'],
+                imageName: 'ibm'
             },
             {
-                title: '2008 - 2010: GUI Developer at IBM - Diligent',
-                content: ['JAVA', 'SWING']
+                years: '2008-2010',
+                title: 'GUI Developer at IBM - Diligent',
+                content: ['JAVA', 'SWING'],
+                imageName: 'ibm'
             }
         ];
         this.contentBoxesInformation.forEach(c => {
-            const contentBoxHTML = <ContentBox ref={(c) => this.contentBoxes.push(c) }  onClick={this.handleClick.bind(this)} content={c.content} title={c.title} ></ContentBox>
+            const contentBoxHTML = <ContentBox ref={(c) => this.contentBoxes.push(c) }  onClick={this.handleClick.bind(this)} content={c.content} imageName={c.imageName} years={c.years} title={c.title} ></ContentBox>
             this.contentBoxesHTML.push(contentBoxHTML);
         });
 

@@ -12,9 +12,10 @@ body {
 }
 
 .title {
+    padding-left: 1em;
+    padding-right: 1em;
     position: relative;
     color: black;
-    text-align: center;
     line-height: 2em;
     -moz-border-radius: 0 0 0 35px;
     -webkit-border-radius: 15px 15px 0 0;
@@ -22,6 +23,10 @@ body {
     width: 30em;
     background: #80bfff;
     top: 0;
+}
+
+span {
+    display: inline-block;
 }
 
 .title-animation {
@@ -56,7 +61,7 @@ body {
 .content {
     position: relative;
     color: #3E4C3D;
-    width: 30em;
+    width: 32em;
     height: 0px;
     padding-top: 0.5em;
     opacity: 0%;
