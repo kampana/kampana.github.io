@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentBox from './components/ContentBox.jsx'
+import ContentBox from './components/contentBox/ContentBox.jsx'
 
         export default class App extends React.Component {
     constructor(props) {
@@ -15,19 +15,19 @@ import ContentBox from './components/ContentBox.jsx'
             },
             {
                 years: '2013-2016',
-                title: 'Team Lead at IBM - XIV',
+                title: 'Team Leader',
                 content: ['Angular', 'JAVA'],
                 imageName: 'ibm'
             },
             {
                 years: '2010-2013',
-                title: 'Team Lead at IBM - Diligent',
+                title: 'Team Leader',
                 content: ['JAVA', 'SWING'],
                 imageName: 'ibm'
             },
             {
                 years: '2008-2010',
-                title: 'GUI Developer at IBM - Diligent',
+                title: 'GUI Developer',
                 content: ['JAVA', 'SWING'],
                 imageName: 'ibm'
             }
