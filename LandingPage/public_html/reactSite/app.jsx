@@ -1,16 +1,15 @@
 import React from 'react';
-import ContentBox from './components/contentBox/ContentBox.jsx'
+import CVTitle from './components/CVTitle.jsx';
+import CVPersonalInformation from './components/CVPersonalInformation.jsx';
+import CVExprience from './components/CVExprience.jsx';
 
-        export default class App extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {contentBoxClicked: 'hello to me'};
-        this.contentBoxesHTML = [];
-        this.contentBoxes = [];
         this.contentBoxesInformation = [{
                 years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['JAVA', 'Angular','Spring / Hibernate', 'C#'],
+                content: ['JAVA', 'Angular', 'Spring / Hibernate', 'C#'],
                 imageName: 'panaya'
             },
             {
@@ -32,39 +31,31 @@ import ContentBox from './components/contentBox/ContentBox.jsx'
                 imageName: 'ibm'
             }
         ];
-        this.contentBoxesInformation.forEach(c => {
-            const contentBoxHTML = <ContentBox ref={(c) => this.contentBoxes.push(c) }  onClick={this.handleClick.bind(this)} content={c.content} imageName={c.imageName} years={c.years} title={c.title} ></ContentBox>
-            this.contentBoxesHTML.push(contentBoxHTML);
-        });
 
-        this.counter = 0;
-    }
-
-    handleClick(selectedContentBox) {
-        this.contentBoxes.forEach(contentBox => {
-            contentBox.eventTriggered(selectedContentBox);
-        });
     }
 
     render() {
 
         return (
                 <div>
-                    <div style={{fontSize: '200%'}}>Uri Shmueli
-                    </div>
-                    <div style={{marginTop: '0.5em', marginBottom: '2em'}}>
-                        Phone information<br></br>
-                        Mail information                
-                    </div>
-                    <div>
-                    <div style={{fontSize: '150%', borderStyle: 'none none solid none', marginBottom: '1em'}}>Exprience
-                    </div>
-                        <div>
-                            {this.contentBoxesHTML}
-                        </div>
-                
+                    <CVPersonalInformation></CVPersonalInformation>
+                    <div style={{display:'flex'}}>
+                        <span>
+                            {/*Left column*/}
+                            <div>
+                                <CVTitle title="Exprience"/>
+                                <CVExprience content={this.contentBoxesInformation}/>
+                            </div>
+                        </span>
+                        <span style={{marginLeft:'5em'}}>
+                            {/*Right column*/}
+                            <div>
+                                <CVTitle title="Projects"/>
+                                <CVExprience content={this.contentBoxesInformation}/>
+                            </div>
+                        </span>
                     </div>
                 </div>
-                                );
-                    }
-                }
+                );
+    }
+}
