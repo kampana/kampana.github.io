@@ -6,7 +6,7 @@ export default class ContentBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExpanded: false,
+            isExpanded: false
         }
 
         this.title = this.props.title;
@@ -15,6 +15,10 @@ export default class ContentBox extends React.Component {
         this.titleClass = 'title';
         this.contentClass = 'content';
         this.content = this.props.content;
+
+        if (this.props.expandedByDefault) {
+            this.doExpand();
+        }
     }
 
     eventTriggered(selectedContentBox) {

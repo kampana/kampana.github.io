@@ -1,70 +1,67 @@
 import React from 'react';
-import ContentBox from './components/ContentBox.jsx'
+import CVTitle from './components/CVTitle.jsx';
+import CVPersonalInformation from './components/CVPersonalInformation.jsx';
+import CVExprience from './components/CVExprience.jsx';
+import CVEducation from './components/CVEducation.jsx';
+import CVArmyService from './components/CVArmyService.jsx';
 
-        export default class App extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {contentBoxClicked: 'hello to me'};
-        this.contentBoxesHTML = [];
-        this.contentBoxes = [];
         this.contentBoxesInformation = [{
                 years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['JAVA', 'Angular','Spring / Hibernate', 'C#'],
+                content: ['JAVA', 'Angular', 'Spring / Hibernate', 'C#'],
                 imageName: 'panaya'
             },
             {
                 years: '2013-2016',
-                title: 'Team Lead at IBM - XIV',
+                title: 'Team Leader',
                 content: ['Angular', 'JAVA'],
                 imageName: 'ibm'
             },
             {
                 years: '2010-2013',
-                title: 'Team Lead at IBM - Diligent',
+                title: 'Team Leader',
                 content: ['JAVA', 'SWING'],
                 imageName: 'ibm'
             },
             {
                 years: '2008-2010',
-                title: 'GUI Developer at IBM - Diligent',
+                title: 'GUI Developer',
                 content: ['JAVA', 'SWING'],
                 imageName: 'ibm'
             }
         ];
-        this.contentBoxesInformation.forEach(c => {
-            const contentBoxHTML = <ContentBox ref={(c) => this.contentBoxes.push(c) }  onClick={this.handleClick.bind(this)} content={c.content} imageName={c.imageName} years={c.years} title={c.title} ></ContentBox>
-            this.contentBoxesHTML.push(contentBoxHTML);
-        });
 
-        this.counter = 0;
-    }
-
-    handleClick(selectedContentBox) {
-        this.contentBoxes.forEach(contentBox => {
-            contentBox.eventTriggered(selectedContentBox);
-        });
     }
 
     render() {
 
         return (
                 <div>
-                    <div style={{fontSize: '200%'}}>Uri Shmueli
-                    </div>
-                    <div style={{marginTop: '0.5em', marginBottom: '2em'}}>
-                        Phone information<br></br>
-                        Mail information                
-                    </div>
-                    <div>
-                    <div style={{fontSize: '150%', borderStyle: 'none none solid none', marginBottom: '1em'}}>Exprience
-                    </div>
-                        <div>
-                            {this.contentBoxesHTML}
-                        </div>
-                
+                    <CVPersonalInformation></CVPersonalInformation>
+                    <div style={{display:'flex'}}>
+                        <span>
+                            {/*Left column*/}
+                            <div>
+                                <CVTitle title="Exprience"/>
+                                <CVExprience content={this.contentBoxesInformation}/>
+                            </div>
+                        </span>
+                        <span style={{marginLeft:'5em'}}>
+                            {/*Right column*/}
+                            <div>
+                                <CVTitle title="Education"/>
+                                <CVEducation></CVEducation>
+
+                                <CVTitle title="Army Service"/>
+                                <CVArmyService></CVArmyService>
+
+                            </div>
+                        </span>
                     </div>
                 </div>
-                                );
-                    }
-                }
+                );
+    }
+}
