@@ -22,7 +22,7 @@ body {
     -moz-border-radius: 0 0 0 35px;
     -webkit-border-radius: 15px 15px 0 0;
     height: 2em;
-    width: 30em;
+    width: 26em;
     background: #80bfff;
     top: 0;
 }
@@ -63,7 +63,7 @@ span {
 .content {
     position: relative;
     color: #3E4C3D;
-    width: 32em;
+    width: 28em;
     height: 0px;
     padding-top: 0.5em;
     opacity: 0%;
