@@ -15,7 +15,7 @@ export default class Title extends React.Component {
                     <span style={{width: '8em'}}>{this.years}</span>
                     <span style={{fontWeight: 'bold'}}>{this.title}</span>
                     <span style={{float: 'right'}}>
-                        <img src={this.imageName} width="100em"/>            
+                        <img src={this.imageName} width="90em"/>            
                     </span>
                 </div>);
                         }

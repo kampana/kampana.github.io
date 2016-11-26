@@ -15,8 +15,10 @@ export default class ContentBox extends React.Component {
         this.titleClass = 'title';
         this.contentClass = 'content';
         this.content = this.props.content;
+    }
 
-        if (this.props.expandedByDefault) {
+    componentDidMount() {
+          if (this.props.expandedByDefault) {
             this.doExpand();
         }
     }
@@ -67,3 +69,11 @@ export default class ContentBox extends React.Component {
                 );
     }
 };
+
+ContentBox.propTypes  = {
+    title: React.PropTypes.string.isRequired,
+    content: React.PropTypes.array.isRequired,
+    years: React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func.isRequired,
+    imageName: React.PropTypes.string
+}
