@@ -11,25 +11,25 @@ export default class App extends React.Component {
         this.contentBoxesInformation = [{
                 years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['JAVA', 'Angular', 'Spring / Hibernate', 'C#'],
+                content: ['Hands on development in Java', 'AngularJS', 'Spring / Hibernate', 'C#'],
                 imageName: 'panaya'
             },
             {
                 years: '2013-2016',
                 title: 'Team Leader',
-                content: ['Angular', 'JAVA'],
+                content: ['Leading 6-12 team members', 'Hands on development in Java', 'AngularJS'],
                 imageName: 'ibm'
             },
             {
                 years: '2010-2013',
                 title: 'Team Leader',
-                content: ['JAVA', 'SWING'],
+                content: ['Leading 4 team members worldwide', 'Hands on development in Java','GUI development in SWING'],
                 imageName: 'ibm'
             },
             {
                 years: '2008-2010',
                 title: 'GUI Developer',
-                content: ['JAVA', 'SWING'],
+                content: ['Hands on development in Java', 'GUI development in SWING'],
                 imageName: 'ibm'
             }
         ];

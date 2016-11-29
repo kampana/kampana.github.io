@@ -8,6 +8,16 @@ body {
     margin-left: 2em;
 }
 
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
 .title {
     padding-left: 1em;
     padding-right: 1em;
@@ -65,7 +75,7 @@ span { /* To make the width get effected */
     opacity: 1;
     -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
-    box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
+    box-shadow: 10px     12px 13px 0px rgba(0,0,0,0.41);
     background-color: white;
     margin-bottom: 0.5em;
 

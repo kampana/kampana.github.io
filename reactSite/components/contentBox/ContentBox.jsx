@@ -6,14 +6,14 @@ export default class ContentBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExpanded: false
+            isExpanded: false,
+            titleClass: 'title',
+            contentClass: 'content'
         }
 
         this.title = this.props.title;
         this.years = this.props.years;
         this.imageName = this.props.imageName;
-        this.titleClass = 'title';
-        this.contentClass = 'content';
         this.content = this.props.content;
     }
 
@@ -37,9 +37,11 @@ export default class ContentBox extends React.Component {
 
     doExpand() {
         if (!this.state.isExpanded) {
-            this.setState({isExpanded: true});
-            this.contentClass = 'content content-animation';
-            this.titleClass = 'title title-animation';
+            this.setState({
+                isExpanded: true,
+                contentClass: 'content content-animation',
+                titleClass: 'title title-animation'
+            });
         }
     }
 
@@ -53,9 +55,11 @@ export default class ContentBox extends React.Component {
 
     doCollapse() {
         if (this.state.isExpanded) {
-            this.setState({isExpanded: false});
-            this.contentClass = 'content content-backward-animation';
-            this.titleClass = 'title title-backward-animation';
+            this.setState({
+                isExpanded: false,
+                contentClass: 'content content-backward-animation',
+                titleClass: 'title title-backward-animation'
+            });
         }
     }
 
@@ -63,8 +67,8 @@ export default class ContentBox extends React.Component {
 
         return (
                 <div onClick={this.handleClick.bind(this)} >
-                    <Title class={this.titleClass} imageName={this.imageName} years={this.years} title={this.title} />
-                    <Content class={this.contentClass} content={this.content}/>
+                    <Title class={this.state.titleClass} imageName={this.imageName} years={this.years} title={this.title} />
+                    <Content class={this.state.contentClass} content={this.content}/>
                 </div>
                 );
     }
