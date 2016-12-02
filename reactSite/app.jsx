@@ -11,7 +11,7 @@ export default class App extends React.Component {
         this.contentBoxesInformation = [{
                 years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['Hands on development in Java', 'AngularJS', 'Spring / Hibernate', 'C#'],
+                content: ['Hands on development in Java', 'AngularJS', 'Spring', 'Hibernate over MySQL', 'C#'],
                 imageName: 'panaya'
             },
             {

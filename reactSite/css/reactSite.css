@@ -2,14 +2,23 @@ body {
     background: #3E4C3D;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 100;
-    overflow: hidden;
     color: white;
     margin-top: 2em;
     margin-left: 2em;
 }
 
+//* unvisited link */
+a:link {
+    color: white;
+}
+
 /* visited link */
 a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
     color: white;
 }
 
