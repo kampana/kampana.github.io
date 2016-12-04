@@ -4,6 +4,7 @@ import CVPersonalInformation from './components/CVPersonalInformation.jsx';
 import CVExprience from './components/CVExprience.jsx';
 import CVEducation from './components/CVEducation.jsx';
 import CVArmyService from './components/CVArmyService.jsx';
+import CVProject from './components/CVProject.jsx'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -47,6 +48,10 @@ export default class App extends React.Component {
                             <div>
                                 <CVTitle title="Exprience"/>
                                 <CVExprience content={this.contentBoxesInformation}/>
+                                <div style={{marginTop: '1em'}} >
+                                    <CVTitle title="This project"/>
+                                    <CVProject></CVProject>
+                                </div>
                             </div>
                         </span>
                         <span style={{marginLeft:'5em'}}>
@@ -57,7 +62,6 @@ export default class App extends React.Component {
 
                                 <CVTitle title="Army Service"/>
                                 <CVArmyService></CVArmyService>
-
                             </div>
                         </span>
                     </div>
