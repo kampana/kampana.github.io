@@ -5,6 +5,7 @@ import CVExprience from './components/CVExprience.jsx';
 import CVEducation from './components/CVEducation.jsx';
 import CVArmyService from './components/CVArmyService.jsx';
 import CVProject from './components/CVProject.jsx'
+import './redux/store.js'
 
 export default class App extends React.Component {
     constructor(props) {
