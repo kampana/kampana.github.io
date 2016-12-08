@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import axios from "axios";
+import * as exprienceActions from "./actions/cvExperienceActions.js"
 import thunk from "redux-thunk"
 import reducers from "./reducers"
 
@@ -9,5 +9,6 @@ store.subscribe( () => {
 	console.log("store changed", store.getState());
 });
 
-store.dispatch({type: "abc"});
+store.dispatch(exprienceActions.fetchExprience1());
+store.dispatch(exprienceActions.fetchExprience2());
 
