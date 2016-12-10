@@ -1,14 +1,10 @@
-import { combineReducers, createStore } from "redux";
-import * as exprienceActions from "./actions/cvExperienceActions.js"
-import thunk from "redux-thunk"
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import logger from "redux-logger"
 import reducers from "./reducers"
 
-const store = createStore(reducers);
+//const middleware = applyMiddleware(logger())
 
-store.subscribe( () => {
-	console.log("store changed", store.getState());
-});
+//export default createStore(reducers, middleware)
 
-store.dispatch(exprienceActions.fetchExprience1());
-store.dispatch(exprienceActions.fetchExprience2());
+export default createStore(reducers)
 

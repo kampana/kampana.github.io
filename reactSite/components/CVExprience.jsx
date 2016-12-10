@@ -19,7 +19,9 @@ export default class CVExprience extends React.Component {
 
     componentDidMount() {
         // Open the first exprience
-        this.contentBoxes[0].eventTriggered(this.contentBoxes[0]);
+        if (this.contentBoxes[0]) {
+            this.contentBoxes[0].eventTriggered(this.contentBoxes[0]);
+        }
     }
 
     handleClick(selectedContentBox) {

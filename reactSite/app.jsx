@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CVTitle from './components/CVTitle.jsx';
 import CVPersonalInformation from './components/CVPersonalInformation.jsx';
 import CVExprience from './components/CVExprience.jsx';
@@ -6,40 +7,25 @@ import CVEducation from './components/CVEducation.jsx';
 import CVArmyService from './components/CVArmyService.jsx';
 import CVProject from './components/CVProject.jsx'
 import './redux/store.js'
+import * as exprienceActions from "./redux/actions/cvExperienceActions.js"
 
+@connect((store) => {
+    return {
+        contentBoxesInformation: store.cvexpriences.expriences
+    }
+})
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.contentBoxesInformation = [{
-                years: '2016 - Present',
-                title: 'Full Stack Developer',
-                content: ['Hands on development in Java', 'AngularJS', 'Spring', 'Hibernate over MySQL', 'C#'],
-                imageName: 'panaya'
-            },
-            {
-                years: '2013-2016',
-                title: 'Team Leader',
-                content: ['Leading 6-12 team members', 'Hands on development in Java', 'AngularJS'],
-                imageName: 'ibm'
-            },
-            {
-                years: '2010-2013',
-                title: 'Team Leader',
-                content: ['Leading 4 team members worldwide', 'Hands on development in Java','GUI development in SWING'],
-                imageName: 'ibm'
-            },
-            {
-                years: '2008-2010',
-                title: 'GUI Developer',
-                content: ['Hands on development in Java', 'GUI development in SWING'],
-                imageName: 'ibm'
-            }
-        ];
+    }
 
+    componentWillMount() {
+        this.props.dispatch(exprienceActions.fetchExprience1())
+        this.props.dispatch(exprienceActions.fetchExprience2())
     }
 
     render() {
-
+        console.log(this.props.contentBoxesInformation);
         return (
                 <div>
                     <CVPersonalInformation></CVPersonalInformation>
@@ -48,7 +34,7 @@ export default class App extends React.Component {
                             {/*Left column*/}
                             <div>
                                 <CVTitle title="Exprience"/>
-                                <CVExprience content={this.contentBoxesInformation}/>
+                                <CVExprience content={this.props.contentBoxesInformation}/>
                                 <div style={{marginTop: '1em'}} >
                                     <CVTitle title="This project"/>
                                     <CVProject></CVProject>
