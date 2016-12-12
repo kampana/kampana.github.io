@@ -2,14 +2,16 @@ import React from 'react';
 import Title from './Title.jsx';
 import Content from './Content.jsx';
 
-export default class ContentBox extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+const defaultState = {
             isExpanded: false,
             titleClass: 'title',
             contentClass: 'content'
         }
+
+export default class ContentBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = defaultState;
 
         this.title = this.props.title;
         this.years = this.props.years;
@@ -17,8 +19,12 @@ export default class ContentBox extends React.Component {
         this.content = this.props.content;
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState(defaultState);
+    }
+
     componentDidMount() {
-          if (this.props.expandedByDefault) {
+        if (this.props.expandedByDefault) {
             this.doExpand();
         }
     }
@@ -64,7 +70,6 @@ export default class ContentBox extends React.Component {
     }
 
     render() {
-
         return (
                 <div onClick={this.handleClick.bind(this)} >
                     <Title class={this.state.titleClass} imageName={this.imageName} years={this.years} title={this.title} />

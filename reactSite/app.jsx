@@ -20,8 +20,7 @@ export default class App extends React.Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(exprienceActions.fetchExprience1())
-        this.props.dispatch(exprienceActions.fetchExprience2())
+        this.props.dispatch(exprienceActions.fetchExprience())
     }
 
     render() {

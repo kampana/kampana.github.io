@@ -6,33 +6,37 @@ export default class CVExprience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contentBoxesHTML : []
+            contentBoxesHTML : [],
+            contentBoxes : []
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        this.contentBoxesHTML = [];
-        this.contentBoxes = [];
+        const contentBoxesHTMLValue = [];
+        const contentBoxesValue = [];
         nextProps.content.forEach(c => {
             const contentBoxHTML = 
-            <ContentBox key={c.years} ref={(c) => this.contentBoxes.push(c) }  onClick={this.handleClick.bind(this)} 
+            <ContentBox key={c.years} ref={(c) => contentBoxesValue.push(c) }  onClick={this.handleClick.bind(this)} 
             content={c.content} imageName={c.imageName} years={c.years} title={c.title} ></ContentBox>
-            this.contentBoxesHTML.push(contentBoxHTML);
+            contentBoxesHTMLValue.push(contentBoxHTML);
         });
 
-
-        this.setState( {contentBoxesHTML : this.contentBoxesHTML });
+        this.setState( {
+            contentBoxesHTML : contentBoxesHTMLValue ,
+            contentBoxes : contentBoxesValue
+        });
     }
 
     componentDidUpdate(prevProps, prevState) {
          // Open the first exprience
-        if (this.contentBoxes[0]) {
-            this.contentBoxes[0].eventTriggered(this.contentBoxes[0]);
+        const firstContentBox = this.state.contentBoxes[0];
+        if (firstContentBox) {
+            firstContentBox.eventTriggered(firstContentBox);
         }
     }
 
     handleClick(selectedContentBox) {
-        this.contentBoxes.forEach(contentBox => {
+        this.state.contentBoxes.forEach(contentBox => {
             contentBox.eventTriggered(selectedContentBox);
         });
     }
