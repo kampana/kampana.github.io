@@ -3,7 +3,7 @@ import axios from "axios";
 export function fetchExprience() {
 	 return function(dispatch) {
 	 	
-    axios.get("http://rest.learncode.academy/api/test123/tweets")
+    axios.get("AAhttp://rest.learncode.academy/api/test123/tweets")
       .then((response) => {
       	console.log(response);
         dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: response.data})
@@ -18,7 +18,7 @@ export function fetchExprience() {
 const exprience1Backup = [{
 				years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['Hands on development in Java', 'AngularJS', 'Spring', 'Hibernate over MySQL', 'C#'],
+                content: ['Hands on development in Java', 'SaaS development via AWS services','AngularJS', 'Spring', 'Hibernate over MySQL', 'C#'],
                 imageName: 'panaya'
 }];
 

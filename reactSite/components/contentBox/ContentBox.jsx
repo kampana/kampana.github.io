@@ -2,6 +2,7 @@ import React from 'react';
 import Title from './Title.jsx';
 import Content from './Content.jsx';
 
+// Init default state
 const defaultState = {
             isExpanded: false,
             titleClass: 'title',
@@ -19,16 +20,14 @@ export default class ContentBox extends React.Component {
         this.content = this.props.content;
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState(defaultState);
-    }
-
+    // Once finished creating the box, expand if requested by default
     componentDidMount() {
         if (this.props.expandedByDefault) {
             this.doExpand();
         }
     }
 
+    // Switch states if the selected box is the current, otherwise collapse
     eventTriggered(selectedContentBox) {
         if (selectedContentBox == this) {
             this.doSwitchState();

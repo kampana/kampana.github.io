@@ -14,6 +14,7 @@ export default class CVExprience extends React.Component {
     componentWillReceiveProps(nextProps) {
         const contentBoxesHTMLValue = [];
         const contentBoxesValue = [];
+        // Creating dynamic contextBoxes, depends on the 'content' array given in props
         nextProps.content.forEach(c => {
             const contentBoxHTML = 
             <ContentBox key={c.years} ref={(c) => contentBoxesValue.push(c) }  onClick={this.handleClick.bind(this)} 
@@ -28,10 +29,10 @@ export default class CVExprience extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-         // Open the first exprience
+         // Expand the first exprience, if exists
         const firstContentBox = this.state.contentBoxes[0];
         if (firstContentBox) {
-            firstContentBox.eventTriggered(firstContentBox);
+            firstContentBox.doExpand();
         }
     }
 

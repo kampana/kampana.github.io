@@ -84,7 +84,7 @@ span { /* To make the width get effected */
 }
 
 .content-animation {
-    height: 8em; 
+    height: 10em; 
     opacity: 1;
     -webkit-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
     -moz-box-shadow: 10px 12px 13px 0px rgba(0,0,0,0.41);
