@@ -2,9 +2,9 @@ import axios from "axios";
 
 export function fetchExprience() {
 	 return function(dispatch) {
-	 	
-    //axios.get("http://localhost:5000")
-    axios.get("http://nodejs-kampana.herokuapp.com")
+	 	dispatch({type: "FETCH_EXPRIENCE_PENDING"})
+    axios.get("http://localhost:5000")
+    //axios.get("http://nodejs-kampana.herokuapp.com")
       .then((response) => {
         // Get from remote server
         dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: response.data})

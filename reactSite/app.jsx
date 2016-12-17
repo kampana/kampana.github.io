@@ -11,7 +11,8 @@ import * as exprienceActions from "./redux/actions/cvExperienceActions.js"
 
 @connect((store) => {
     return {
-        contentBoxesInformation: store.cvexpriences.expriences
+        contentBoxesInformation: store.cvexpriences.expriences,
+        fetching: store.cvexpriences.fetching
     }
 })
 export default class App extends React.Component {
@@ -27,12 +28,13 @@ export default class App extends React.Component {
         return (
                 <div>
                     <CVPersonalInformation></CVPersonalInformation>
+                    <loadingDiv></loadingDiv>
                     <div style={{display:'flex'}}>
                         <span>
                             {/*Left column*/}
                             <div>
                                 <CVTitle title="Exprience"/>
-                                <CVExprience content={this.props.contentBoxesInformation}/>
+                                <CVExprience fetchingState={this.props.fetching} content={this.props.contentBoxesInformation}/>
                                 <div style={{marginTop: '1em'}} >
                                     <CVTitle title="This project"/>
                                     <CVProject></CVProject>

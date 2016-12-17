@@ -43,11 +43,26 @@ export default class CVExprience extends React.Component {
     }
 
     render() {
-        return (
+        if (this.props.fetchingState) {
+            // Showing loading icon
+            return (
                 <div>
-                    {this.state.contentBoxesHTML}
+                    <img src="./images/loading.gif" width="30em"/> 
                 </div>
                 )
+        } else {
+            // Showing content boxes
+            return (
+                    <div>   
+                        {this.state.contentBoxesHTML}
+                    </div>
+                    )
+        }
     }
     ;
+}
+
+CVExprience.propTypes  = {
+    content: React.PropTypes.array.isRequired,
+    fetchingState: React.PropTypes.bool.isRequired
 }
