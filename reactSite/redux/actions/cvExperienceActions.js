@@ -3,14 +3,16 @@ import axios from "axios";
 export function fetchExprience() {
 	 return function(dispatch) {
 	 	
-    axios.get("AAhttp://rest.learncode.academy/api/test123/tweets")
+    //axios.get("http://localhost:5000")
+    axios.get("http://nodejs-kampana.herokuapp.com")
       .then((response) => {
-      	console.log(response);
+        // Get from remote server
         dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: response.data})
       })
       .catch((err) => {
+        // In case of failure, fail over with local array
         dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: exprience1Backup});
-	 	dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: exprience2Backup});
+	     	dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: exprience2Backup});
       })
   }
 }
