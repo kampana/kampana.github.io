@@ -36,7 +36,7 @@ export default class App extends React.Component {
                                 <CVTitle title="Exprience"/>
                                 <CVExprience fetchingState={this.props.fetching} content={this.props.contentBoxesInformation}/>
                                 <div style={{marginTop: '1em'}} >
-                                    <CVTitle title="This project"/>
+                                    <CVTitle title="This Project"/>
                                     <CVProject></CVProject>
                                 </div>
                             </div>
