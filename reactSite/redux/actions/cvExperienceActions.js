@@ -4,7 +4,7 @@ export function fetchExprience() {
 	 return function(dispatch) {
 	 	dispatch({type: "FETCH_EXPRIENCE_PENDING"})
     //axios.get("http://localhost:5000")
-    axios.get("http://nodejs-kampana.herokuapp.com")
+    axios.get(getNodeUrl())
       .then((response) => {
         // Get from remote server
         dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: response.data})
@@ -15,6 +15,15 @@ export function fetchExprience() {
 	     	dispatch({type: "FETCH_EXPRIENCE_FULFILLED", payload: exprience2Backup});
       })
   }
+}
+
+// Returns the nodeJS URL, in case of production or local dev
+function getNodeUrl() {
+    if (process.env.NODE_ENV === 'production') {
+      return "http://nodejs-kampana.herokuapp.com";
+    } else {
+      return "http://localhost:5000"
+    }
 }
 
 const exprience1Backup = [{
