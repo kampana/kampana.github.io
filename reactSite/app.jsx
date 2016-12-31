@@ -28,7 +28,6 @@ export default class App extends React.Component {
         return (
                 <div>
                     <CVPersonalInformation></CVPersonalInformation>
-                    <loadingDiv></loadingDiv>
                     <div style={{display:'flex'}}>
                         <span>
                             {/*Left column*/}
