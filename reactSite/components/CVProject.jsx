@@ -11,8 +11,7 @@ export default class CVProject extends React.Component {
             	"JSX",
             	"Redux",
             	"Webpack",
-            	"NodeJS over Heroku PaaS",
-            	"PostgreSQL over Heroku PaaS"
+            	"NodeJS over Heroku PaaS"
             ]
         }
 	}
