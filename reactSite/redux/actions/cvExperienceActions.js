@@ -29,7 +29,7 @@ function getNodeUrl() {
 const exprience1Backup = [{
 				years: '2016 - Present',
                 title: 'Full Stack Developer',
-                content: ['Hands on development in Java', 'SaaS development via AWS services','AngularJS', 'Spring', 'Hibernate over MySQL', 'C#'],
+                content: ['Hands on development in Java 8', 'AngularJS','ElasticSearch','SaaS development via AWS services', 'Spring', 'Hibernate over MySQL', 'C#'],
                 imageName: 'panaya'
 }];
 
