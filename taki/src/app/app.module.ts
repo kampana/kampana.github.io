@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { MdCardModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

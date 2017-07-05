@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: row; height: 100%; width: 100%; align-content: space-between\">\r\n        <div style=\"flex: 8 80%\">\r\n            <div style=\"display: flex; flex-direction: column; margin: 0.5em; height: 100%\">\r\n                <md-card style=\"flex: 8 80%; background-color: cadetblue\">\r\n                    ALL CARDS4\r\n                </md-card>\r\n                <md-card style=\"flex: 2 20%; margin-top:1em;margin-bottom: 1em; background-color: skyblue\">\r\n                    MY CARDS4\r\n                </md-card>\r\n            </div>\r\n        </div>\r\n        <div style=\"flex: 2 20%;\">\r\n            <div style=\"display:flex; flex-direction: column; height: 100%; \">\r\n                <md-card style=\"flex: 1 100%;margin: 0.5em; background-color: steelblue\">\r\n                    PANEL\r\n                </md-card>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; align-content: space-between; height: 100%\">\r\n        <div style=\"flex: 1 100%\">\r\n            <md-card style=\"width: 30%; margin: auto; background-color: dodgerblue\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n        <div style=\"flex: 2 100%; margin: 1em\">\r\n            <md-card style=\"width: 10%; margin: auto\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"red\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n        <div style=\"flex: 1 100%\">\r\n            <md-card style=\"width: 30%; margin: auto; background-color: dodgerblue\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"red\"></app-card>\r\n                    <app-card color=\"green\"></app-card>\r\n                    <app-card color=\"green\"></app-card>\r\n                    <app-card color=\"blue\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -53,7 +53,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'appPROD';
     }
     return AppComponent;
 }());
@@ -77,6 +76,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__card_card_component__ = __webpack_require__("../../../../../src/app/card/card.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -84,6 +84,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -96,7 +97,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__card_card_component__["a" /* CardComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -108,6 +110,71 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/card/card.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card-style {\r\n    width: 3em;\r\n    height: 4em;\r\n    border: solid;\r\n    margin: -0.5em;\r\n    box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/card/card.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card-style\" [ngStyle]=\"{'background-color': color}\">\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/card/card.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CardComponent = (function () {
+    function CardComponent() {
+    }
+    CardComponent.prototype.ngOnInit = function () {
+    };
+    return CardComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* Input */])(),
+    __metadata("design:type", String)
+], CardComponent.prototype, "color", void 0);
+CardComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Component */])({
+        selector: 'app-card',
+        template: __webpack_require__("../../../../../src/app/card/card.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/card/card.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], CardComponent);
+
+//# sourceMappingURL=card.component.js.map
 
 /***/ }),
 
