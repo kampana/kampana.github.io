@@ -1,33 +1,29 @@
 <div id="container">
-    <div style="display: flex; flex-direction: column; height: 100%">
-        <div style="flex: 1 100%;  border: solid">
-            <md-card style="width: 30%; margin: auto; background-color: dodgerblue">
-                <div style="display: flex; flex-direction: row; justify-content: center">
-                    <app-card color="gray"></app-card>
-                    <app-card color="gray"></app-card>
-                    <app-card color="gray"></app-card>
-                    <app-card color="gray"></app-card>
-                    <app-card color="gray"></app-card>
-                    <app-card color="gray"></app-card>
-                </div>
-            </md-card>
+    <div style="display: flex; flex-direction: column; height: 100%; align-items: stretch">
+        <div class="boxShadow" style="width: 50%; flex: 1 100%; 
+        background-color: dodgerblue; margin: auto">
+            <div style="display: flex; flex-direction: row; justify-content: center">
+                <app-card color="gray"></app-card>
+                <app-card color="gray"></app-card>
+                <app-card color="gray"></app-card>
+                <app-card color="gray"></app-card>
+                <app-card color="gray"></app-card>
+                <app-card color="gray"></app-card>
+            </div>
         </div>
-        <div style="flex: 2 100%; margin: 1em;  border: solid">
-            <md-card style="width: 10%; margin: auto">
-                <div style="display: flex; flex-direction: row; justify-content: center">
-                    <app-card color="red"></app-card>
-                </div>
-            </md-card>
+        <div style="flex: 2 100%; margin: 1em;">
+            <div class="boxShadow" style="width: 10%; margin: auto; 
+            display: flex; flex-direction: row; justify-content: center">
+                <app-card color="red"></app-card>
+            </div>
         </div>
-        <div style="flex: 1 100%; border: solid">
-            <md-card style="width: 30%; margin: auto; background-color: dodgerblue">
-                <div style="display: flex; flex-direction: row; justify-content: center">
-                    <app-card color="red"></app-card>
-                    <app-card color="green"></app-card>
-                    <app-card color="green"></app-card>
-                    <app-card color="blue"></app-card>
-                </div>
-            </md-card>
+        <div style="flex: 1 100%;">
+            <div class="boxShadow" style="height: 30%; width: 50%; margin: auto; background-color: dodgerblue; display: 
+            flex; flex-direction: row; justify-content: center">
+                <app-card color="red"></app-card>
+                <app-card color="green"></app-card>
+                <app-card color="green"></app-card>
+                <app-card color="blue"></app-card>
+            </div>
         </div>
     </div>
-</div>

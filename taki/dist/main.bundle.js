@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#container {\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    bottom: 0;\r\n    position: absolute;\r\n}", ""]);
+exports.push([module.i, "#container {\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    bottom: 0;\r\n    position: absolute;\r\n}\r\n\r\n.boxShadow {\r\n    box-shadow: -2px 0px 27px -2px rgba(0,0,0,0.75);\r\n}", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; height: 100%\">\r\n        <div style=\"flex: 1 100%;  border: solid\">\r\n            <md-card style=\"width: 30%; margin: auto; background-color: dodgerblue\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                    <app-card color=\"gray\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n        <div style=\"flex: 2 100%; margin: 1em;  border: solid\">\r\n            <md-card style=\"width: 10%; margin: auto\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"red\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n        <div style=\"flex: 1 100%; border: solid\">\r\n            <md-card style=\"width: 30%; margin: auto; background-color: dodgerblue\">\r\n                <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                    <app-card color=\"red\"></app-card>\r\n                    <app-card color=\"green\"></app-card>\r\n                    <app-card color=\"green\"></app-card>\r\n                    <app-card color=\"blue\"></app-card>\r\n                </div>\r\n            </md-card>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; height: 100%; align-items: stretch\">\r\n        <div class=\"boxShadow\" style=\"width: 30%; flex: 1 100%; \r\n        background-color: dodgerblue; margin: auto\">\r\n            <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                <app-card color=\"gray\"></app-card>\r\n                <app-card color=\"gray\"></app-card>\r\n                <app-card color=\"gray\"></app-card>\r\n                <app-card color=\"gray\"></app-card>\r\n                <app-card color=\"gray\"></app-card>\r\n                <app-card color=\"gray\"></app-card>\r\n            </div>\r\n        </div>\r\n        <div style=\"flex: 2 100%; margin: 1em;\">\r\n            <div class=\"boxShadow\" style=\"width: 10%; margin: auto; \r\n            display: flex; flex-direction: row; justify-content: center\">\r\n                <app-card color=\"red\"></app-card>\r\n            </div>\r\n        </div>\r\n        <div style=\"flex: 1 100%;\">\r\n            <div class=\"boxShadow\" style=\"height: 30%; width: 30%; margin: auto; background-color: dodgerblue; display: \r\n            flex; flex-direction: row; justify-content: center\">\r\n                <app-card color=\"red\"></app-card>\r\n                <app-card color=\"green\"></app-card>\r\n                <app-card color=\"green\"></app-card>\r\n                <app-card color=\"blue\"></app-card>\r\n            </div>\r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -121,7 +121,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card-style {\r\n    width: 3em;\r\n    height: 4em;\r\n    border: solid;\r\n    margin: -0.5em;\r\n    box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);\r\n}", ""]);
+exports.push([module.i, ".card-style {\r\n    width: 3em;\r\n    height: 4em;\r\n    border: solid;\r\n    margin-left: -0.5em;\r\n    box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);\r\n}", ""]);
 
 // exports
 
