@@ -1,0 +1,19 @@
+.flexCenter {
+     display: flex; 
+     flex-direction: row; 
+     justify-content: center; 
+     margin: 1em;
+}
+
+.title {
+    color: white;  
+    height: 1%;  
+    padding: 0.5em;
+    background-color: steelblue
+}
+
+.content {
+    height: 25%;  
+    padding: 0.25em;
+    background-color: dodgerblue;
+}
