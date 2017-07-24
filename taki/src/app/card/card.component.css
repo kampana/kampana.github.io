@@ -7,3 +7,13 @@
     -moz-box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);
     box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);
 }
+
+.clickAnimation {
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}

@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <div style=\"display: flex; flex-direction: row; justify-content: center; margin: 1em;\">\r\n            <div style=\"width: 70%\">\r\n                <div class=\"boxShadow\" style=\"color: white;  height: 1%;  padding: 0.5em;\r\n        background-color: steelblue\">\r\n                    Other User\r\n                </div>\r\n                <div class=\"boxShadow\" style=\"height: 25%;  padding: 0.25em;\r\n        background-color: dodgerblue;\">\r\n                    <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                        <app-card color=\"gray\"></app-card>\r\n                        <app-card color=\"gray\"></app-card>\r\n                        <app-card color=\"gray\"></app-card>\r\n                        <app-card color=\"gray\"></app-card>\r\n                        <app-card color=\"gray\"></app-card>\r\n                        <app-card color=\"gray\"></app-card>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n        <div style=\"display: flex; flex-direction: row; justify-content: center; margin: 1em; \">\r\n            <div class=\"boxShadow\" style=\"height: 20%; width: 30%;  padding: 1em;\">\r\n            <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                <app-card color=\"red\"></app-card>\r\n            </div>\r\n            </div>\r\n        </div>\r\n        <div style=\"display: flex; flex-direction: row; justify-content: center;\">\r\n            <div style=\"width: 70%\">\r\n                <div class=\"boxShadow\" style=\"color: white;  height: 1%;  padding: 0.5em;\r\n        background-color: steelblue\">\r\n                    Other User\r\n                </div>\r\n                <div class=\"boxShadow\" style=\"height: 25%;  padding: 0.25em;\r\n        background-color: dodgerblue;\">\r\n                    <div style=\"display: flex; flex-direction: row; justify-content: center\">\r\n                        <app-card color=\"green\"></app-card>\r\n                        <app-card color=\"blue\"></app-card>\r\n                        <app-card color=\"blue\"></app-card>\r\n                        <app-card color=\"yellow\"></app-card>\r\n                        <app-card color=\"red\"></app-card>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <player-deck name=\"Other player\"></player-deck>\r\n        <cash-deck></cash-deck>\r\n        <player-deck name=\"My name\"></player-deck>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -43,6 +43,8 @@ module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_login_dialog_login_dialog_component__ = __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50,20 +52,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(dialog) {
+        this.dialog = dialog;
     }
+    AppComponent.prototype.ngAfterContentInit = function () {
+    };
+    AppComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.dialog.open(__WEBPACK_IMPORTED_MODULE_2_app_login_dialog_login_dialog_component__["a" /* LoginDialogComponent */], {
+                height: '18em',
+                width: '30%',
+                disableClose: true,
+            });
+        }, 500);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object])
 ], AppComponent);
 
+var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -77,6 +99,11 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__card_card_component__ = __webpack_require__("../../../../../src/app/card/card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__player_deck_player_deck_component__ = __webpack_require__("../../../../../src/app/player-deck/player-deck.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cash_deck_cash_deck_component__ = __webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__ = __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -84,6 +111,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
 
 
 
@@ -98,11 +131,21 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__card_card_component__["a" /* CardComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__card_card_component__["a" /* CardComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__player_deck_player_deck_component__["a" /* PlayerDeckComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__cash_deck_cash_deck_component__["a" /* CashDeckComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
         ],
         imports: [
+            __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdCardModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MaterialModule */],
+        ],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
@@ -121,7 +164,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card-style {\r\n    width: 5em;\r\n    height: 6em;\r\n    border: solid;\r\n    margin-left: -0.5em;\r\n    box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);\r\n}", ""]);
+exports.push([module.i, ".card-style {\r\n    width: 5em;\r\n    height: 6em;\r\n    border: solid;\r\n    margin-left: -0.5em;\r\n    box-shadow: -8px 2px 25px -6px rgba(0,0,0,0.75);\r\n}\r\n\r\n.clickAnimation {\r\n    -webkit-animation-name: example;\r\n            animation-name: example;\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n}\r\n\r\n@-webkit-keyframes example {\r\n    from {background-color: red;}\r\n    to {background-color: yellow;}\r\n}\r\n\r\n@keyframes example {\r\n    from {background-color: red;}\r\n    to {background-color: yellow;}\r\n}", ""]);
 
 // exports
 
@@ -134,7 +177,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card-style\" [ngStyle]=\"{'background-color': color}\">\r\n</div>"
+module.exports = "<div class=\"card-style\" (click)=\"handleClick()\" \r\n        [ngStyle]=\"{'background-color': color}\">\r\n</div>"
 
 /***/ }),
 
@@ -157,16 +200,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CardComponent = (function () {
     function CardComponent() {
     }
+    CardComponent.prototype.handleClick = function () {
+    };
     CardComponent.prototype.ngOnInit = function () {
     };
     return CardComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
     __metadata("design:type", String)
 ], CardComponent.prototype, "color", void 0);
 CardComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-card',
         template: __webpack_require__("../../../../../src/app/card/card.component.html"),
         styles: [__webpack_require__("../../../../../src/app/card/card.component.css")]
@@ -175,6 +220,196 @@ CardComponent = __decorate([
 ], CardComponent);
 
 //# sourceMappingURL=card.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/cash-deck/cash-deck.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".flexCenter {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex; \r\n    -webkit-box-orient: horizontal; \r\n    -webkit-box-direction: normal; \r\n        -ms-flex-direction: row; \r\n            flex-direction: row; \r\n    -webkit-box-pack: center; \r\n        -ms-flex-pack: center; \r\n            justify-content: center;\r\n}\r\n\r\n.content {\r\n    height: 20%; \r\n    width: 30%;  \r\n    padding: 1em;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/cash-deck/cash-deck.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flexCenter\">\n  <div class=\"boxShadow content\">\n    <div class=\"flexCenter\">\n      <app-card color=\"red\"></app-card>\n      <span style=\"margin-left: 7%\"></span>\n      <app-card color=\"gray\"></app-card>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/cash-deck/cash-deck.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CashDeckComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CashDeckComponent = (function () {
+    function CashDeckComponent() {
+    }
+    CashDeckComponent.prototype.ngOnInit = function () {
+    };
+    return CashDeckComponent;
+}());
+CashDeckComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'cash-deck',
+        template: __webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.css"), __webpack_require__("../../../../../src/app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], CashDeckComponent);
+
+//# sourceMappingURL=cash-deck.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/login-dialog/login-dialog.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".buttonColor {\r\n    background-color: green; \r\n    color: white\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/login-dialog/login-dialog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div md-dialog-title>Login</div>\n<md-dialog-content>\n  <div>\n    <md-input-container>\n      <input mdInput placeholder=\"User name\" value=\"\" [ngModel]=\"userName\">\n    </md-input-container>\n  </div>\n  <div>\n    <md-input-container>\n      <input mdInput placeholder=\"Room name\" value=\"\" [ngModel]=\"roomName\">\n    </md-input-container>\n  </div>\n</md-dialog-content>\n  <div style=\"float: right\">\n    <button md-mini-fab md-dialog-close [disabled]=\"isCloseEnabled()\" class=\"buttonColor\" ><md-icon>check</md-icon></button>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/login-dialog/login-dialog.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginDialogComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginDialogComponent = (function () {
+    function LoginDialogComponent() {
+    }
+    LoginDialogComponent.prototype.isCloseEnabled = function () {
+        console.log(this.userName);
+    };
+    LoginDialogComponent.prototype.ngOnInit = function () {
+    };
+    return LoginDialogComponent;
+}());
+LoginDialogComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'app-login-dialog',
+        template: __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], LoginDialogComponent);
+
+//# sourceMappingURL=login-dialog.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/player-deck/player-deck.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".flexCenter {\r\n     display: -webkit-box;\r\n     display: -ms-flexbox;\r\n     display: flex; \r\n     -webkit-box-orient: horizontal; \r\n     -webkit-box-direction: normal; \r\n         -ms-flex-direction: row; \r\n             flex-direction: row; \r\n     -webkit-box-pack: center; \r\n         -ms-flex-pack: center; \r\n             justify-content: center; \r\n     margin: 1em;\r\n}\r\n\r\n.title {\r\n    color: white;  \r\n    height: 1%;  \r\n    padding: 0.5em;\r\n    background-color: steelblue\r\n}\r\n\r\n.content {\r\n    height: 25%;  \r\n    padding: 0.25em;\r\n    background-color: dodgerblue;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/player-deck/player-deck.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"flexCenter\">\n  <div style=\"width: 70%\">\n    <div class=\"boxShadow title\" >\n      {{name}}\n    </div>\n    <div class=\"boxShadow content\" >\n      <div class=\"flexCenter\">\n        <app-card color=\"gray\"></app-card>\n        <app-card color=\"gray\"></app-card>\n        <app-card color=\"gray\"></app-card>\n        <app-card color=\"gray\"></app-card>\n        <app-card color=\"gray\"></app-card>\n        <app-card color=\"gray\"></app-card>\n      </div>\n    </div>\n\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/player-deck/player-deck.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlayerDeckComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PlayerDeckComponent = (function () {
+    function PlayerDeckComponent() {
+    }
+    PlayerDeckComponent.prototype.ngOnInit = function () {
+    };
+    return PlayerDeckComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __metadata("design:type", String)
+], PlayerDeckComponent.prototype, "name", void 0);
+PlayerDeckComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'player-deck',
+        template: __webpack_require__("../../../../../src/app/player-deck/player-deck.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/player-deck/player-deck.component.css"), __webpack_require__("../../../../../src/app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], PlayerDeckComponent);
+
+//# sourceMappingURL=player-deck.component.js.map
 
 /***/ }),
 

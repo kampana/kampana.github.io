@@ -1,0 +1,16 @@
+<div md-dialog-title>Login</div>
+<md-dialog-content>
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="User name" value="" [ngModel]="userName">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="Room name" value="" [ngModel]="roomName">
+    </md-input-container>
+  </div>
+</md-dialog-content>
+  <div style="float: right">
+    <button md-mini-fab md-dialog-close [disabled]="isCloseEnabled()" class="buttonColor" ><md-icon>check</md-icon></button>
+  </div>
