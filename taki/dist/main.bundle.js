@@ -44,7 +44,7 @@ module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_login_dialog_login_dialog_component__ = __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__ = __webpack_require__("../../../../../src/app/services/drop-verification.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -59,20 +59,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AppComponent = (function () {
-    function AppComponent(dialog) {
+    function AppComponent(dialog, dropVerificationService) {
         this.dialog = dialog;
+        this.dropVerificationService = dropVerificationService;
+        dropVerificationService.doSomething();
     }
     AppComponent.prototype.ngAfterContentInit = function () {
     };
     AppComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.dialog.open(__WEBPACK_IMPORTED_MODULE_2_app_login_dialog_login_dialog_component__["a" /* LoginDialogComponent */], {
-                height: '18em',
-                width: '30%',
-                disableClose: true,
-            });
-        }, 500);
+        /*  setTimeout(() => {
+           this.dialog.open(LoginDialogComponent, {
+             height: '18em',
+             width: '30%',
+             disableClose: true,
+           });
+         }, 500); */
     };
     return AppComponent;
 }());
@@ -80,12 +81,13 @@ AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -410,6 +412,39 @@ PlayerDeckComponent = __decorate([
 ], PlayerDeckComponent);
 
 //# sourceMappingURL=player-deck.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/drop-verification.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DropVerificationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DropVerificationService = (function () {
+    function DropVerificationService() {
+    }
+    DropVerificationService.prototype.doSomething = function () {
+        console.log("hello");
+    };
+    return DropVerificationService;
+}());
+DropVerificationService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], DropVerificationService);
+
+//# sourceMappingURL=drop-verification.service.js.map
 
 /***/ }),
 
