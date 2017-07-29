@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MdCardModule } from '@angular/material';
@@ -26,6 +27,7 @@ import { FormsModule } from "@angular/forms";
     MdDialogModule,
     FormsModule,
     MaterialModule,
+    HttpClientModule
   ],
   entryComponents: [
     LoginDialogComponent

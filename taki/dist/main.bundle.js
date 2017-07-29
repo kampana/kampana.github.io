@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <player-deck name=\"Other player\"></player-deck>\r\n        <cash-deck></cash-deck>\r\n        <player-deck name=\"My name\"></player-deck>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <player-deck name=\"Other player\"></player-deck>\r\n        {{returnedData}}\r\n        <cash-deck></cash-deck>\r\n        <player-deck name=\"My name\"></player-deck>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -42,9 +42,10 @@ module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__ = __webpack_require__("../../../../../src/app/services/drop-verification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_deck_fetcher_service__ = __webpack_require__("../../../../../src/app/services/deck-fetcher.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_drop_verification_service__ = __webpack_require__("../../../../../src/app/services/drop-verification.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,12 +59,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(dialog, dropVerificationService) {
+    function AppComponent(dialog, dropVerificationService, deckFetcherService) {
         this.dialog = dialog;
         this.dropVerificationService = dropVerificationService;
-        dropVerificationService.doSomething();
+        this.deckFetcherService = deckFetcherService;
+        this.returnedData = "waiting";
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var myCards = this.deckFetcherService.doLogin(function (data) {
+            //this.returnedData = data[0].value;
+            _this.returnedData = data;
+        });
+    };
     AppComponent.prototype.ngAfterContentInit = function () {
     };
     AppComponent.prototype.ngAfterViewInit = function () {
@@ -78,16 +88,16 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["H" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_drop_verification_service__["a" /* DropVerificationService */], __WEBPACK_IMPORTED_MODULE_0__services_deck_fetcher_service__["a" /* DeckFetcherService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_app_services_drop_verification_service__["a" /* DropVerificationService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_drop_verification_service__["a" /* DropVerificationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_drop_verification_service__["a" /* DropVerificationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__services_deck_fetcher_service__["a" /* DeckFetcherService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_deck_fetcher_service__["a" /* DeckFetcherService */]) === "function" && _c || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -96,16 +106,17 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__card_card_component__ = __webpack_require__("../../../../../src/app/card/card.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__player_deck_player_deck_component__ = __webpack_require__("../../../../../src/app/player-deck/player-deck.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cash_deck_cash_deck_component__ = __webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__ = __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__card_card_component__ = __webpack_require__("../../../../../src/app/card/card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__player_deck_player_deck_component__ = __webpack_require__("../../../../../src/app/player-deck/player-deck.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__cash_deck_cash_deck_component__ = __webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_dialog_login_dialog_component__ = __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -124,33 +135,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__card_card_component__["a" /* CardComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__player_deck_player_deck_component__["a" /* PlayerDeckComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__cash_deck_cash_deck_component__["a" /* CashDeckComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__card_card_component__["a" /* CardComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__player_deck_player_deck_component__["a" /* PlayerDeckComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__cash_deck_cash_deck_component__["a" /* CashDeckComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdCardModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogModule */],
-            __WEBPACK_IMPORTED_MODULE_9__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MaterialModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_10__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MaterialModule */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClientModule */]
         ],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_7__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__login_dialog_login_dialog_component__["a" /* LoginDialogComponent */]
         ],
         providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -209,11 +222,11 @@ var CardComponent = (function () {
     return CardComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Input */])(),
     __metadata("design:type", String)
 ], CardComponent.prototype, "color", void 0);
 CardComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* Component */])({
         selector: 'app-card',
         template: __webpack_require__("../../../../../src/app/card/card.component.html"),
         styles: [__webpack_require__("../../../../../src/app/card/card.component.css")]
@@ -274,7 +287,7 @@ var CashDeckComponent = (function () {
     return CashDeckComponent;
 }());
 CashDeckComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* Component */])({
         selector: 'cash-deck',
         template: __webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.html"),
         styles: [__webpack_require__("../../../../../src/app/cash-deck/cash-deck.component.css"), __webpack_require__("../../../../../src/app/app.component.css")]
@@ -307,7 +320,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login-dialog/login-dialog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div md-dialog-title>Login</div>\n<md-dialog-content>\n  <div>\n    <md-input-container>\n      <input mdInput placeholder=\"User name\" value=\"\" [ngModel]=\"userName\">\n    </md-input-container>\n  </div>\n  <div>\n    <md-input-container>\n      <input mdInput placeholder=\"Room name\" value=\"\" [ngModel]=\"roomName\">\n    </md-input-container>\n  </div>\n</md-dialog-content>\n  <div style=\"float: right\">\n    <button md-mini-fab md-dialog-close [disabled]=\"isCloseEnabled()\" class=\"buttonColor\" ><md-icon>check</md-icon></button>\n  </div>"
+module.exports = "<div md-dialog-title>Welcome to Taki 4</div>\r\n<md-dialog-content>\r\n  <div>\r\n    <md-input-container>\r\n      <input mdInput placeholder=\"User name\" value=\"\" ngModel name=\"userName\">\r\n    </md-input-container>\r\n  </div>\r\n  <div>\r\n    <md-input-container>\r\n      <input mdInput placeholder=\"Room name\" value=\"\" ngModel name=\"roomName\">\r\n    </md-input-container>\r\n  </div>\r\n</md-dialog-content>\r\n  <div style=\"float: right\">\r\n    <button md-mini-fab md-dialog-close [disabled]=\"isCloseEnabled()\" class=\"buttonColor\" ><md-icon>check</md-icon></button>\r\n  </div>    \r\n"
 
 /***/ }),
 
@@ -338,7 +351,7 @@ var LoginDialogComponent = (function () {
     return LoginDialogComponent;
 }());
 LoginDialogComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* Component */])({
         selector: 'app-login-dialog',
         template: __webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.html"),
         styles: [__webpack_require__("../../../../../src/app/login-dialog/login-dialog.component.css")]
@@ -399,11 +412,11 @@ var PlayerDeckComponent = (function () {
     return PlayerDeckComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Input */])(),
     __metadata("design:type", String)
 ], PlayerDeckComponent.prototype, "name", void 0);
 PlayerDeckComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* Component */])({
         selector: 'player-deck',
         template: __webpack_require__("../../../../../src/app/player-deck/player-deck.component.html"),
         styles: [__webpack_require__("../../../../../src/app/player-deck/player-deck.component.css"), __webpack_require__("../../../../../src/app/app.component.css")]
@@ -412,6 +425,53 @@ PlayerDeckComponent = __decorate([
 ], PlayerDeckComponent);
 
 //# sourceMappingURL=player-deck.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/deck-fetcher.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeckFetcherService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DeckFetcherService = (function () {
+    function DeckFetcherService(http) {
+        this.http = http;
+    }
+    DeckFetcherService.prototype.getNodeUrl = function () {
+        if (__WEBPACK_IMPORTED_MODULE_2_environments_environment__["a" /* environment */].production === true) {
+            return "http://nodejs-kampana.herokuapp.com";
+        }
+        else {
+            return "http://localhost:5000";
+        }
+    };
+    DeckFetcherService.prototype.doLogin = function (callback) {
+        this.http.get(this.getNodeUrl() + '/takiLogin').subscribe(callback);
+    };
+    return DeckFetcherService;
+}());
+DeckFetcherService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
+], DeckFetcherService);
+
+var _a;
+//# sourceMappingURL=deck-fetcher.service.js.map
 
 /***/ }),
 
@@ -434,13 +494,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DropVerificationService = (function () {
     function DropVerificationService() {
     }
-    DropVerificationService.prototype.doSomething = function () {
-        console.log("hello");
+    DropVerificationService.prototype.isDroppable = function (cardOnDeck, myCard) {
+        if (cardOnDeck.cardColor === myCard.cardColor) {
+            return true;
+        }
+        else if (cardOnDeck.value === myCard.value) {
+            return true;
+        }
+        return false;
     };
     return DropVerificationService;
 }());
 DropVerificationService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], DropVerificationService);
 
