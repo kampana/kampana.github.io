@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, enableProdMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "environments/environment";
 
@@ -17,6 +17,9 @@ export class DeckFetcherService {
         }
     }
 
+    getProductionFlag() {
+        return environment.production;
+    }
 
     doLogin(callback) {
         this.http.get(this.getNodeUrl() + '/takiLogin').subscribe(callback);

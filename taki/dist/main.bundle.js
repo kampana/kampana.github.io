@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <player-deck name=\"Other player\"></player-deck>\r\n        {{returnedData}}\r\n        <cash-deck></cash-deck>\r\n        <player-deck name=\"My name\"></player-deck>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"container\">\r\n    <div style=\"display: flex; flex-direction: column; justify-content: center; height: 100%;\">\r\n        <player-deck name=\"Other player\"></player-deck>\r\n        Prod flag: {{envProductionFlag}}\r\n        <cash-deck></cash-deck>\r\n        <player-deck name=\"My name\"></player-deck>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -459,6 +459,9 @@ var DeckFetcherService = (function () {
         else {
             return "http://localhost:5000";
         }
+    };
+    DeckFetcherService.prototype.getProductionFlag = function () {
+        return __WEBPACK_IMPORTED_MODULE_2_environments_environment__["a" /* environment */].production;
     };
     DeckFetcherService.prototype.doLogin = function (callback) {
         this.http.get(this.getNodeUrl() + '/takiLogin').subscribe(callback);
