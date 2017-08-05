@@ -14,6 +14,7 @@ import { LoginDialogComponent } from "app/login-dialog/login-dialog.component";
 })
 export class AppComponent implements AfterViewInit, AfterContentInit, OnInit {
   returnedData = "waiting";
+  envProductionFlag : boolean;
 
   constructor(private dialog: MdDialog,
     private dropVerificationService: DropVerificationService,
@@ -25,6 +26,9 @@ export class AppComponent implements AfterViewInit, AfterContentInit, OnInit {
       //this.returnedData = data[0].value;
       this.returnedData = data;
     });
+
+    this.envProductionFlag = this.deckFetcherService.getProductionFlag();
+
   }
 
   ngAfterContentInit(): void {
