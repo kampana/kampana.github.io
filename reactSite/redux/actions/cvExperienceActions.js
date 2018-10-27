@@ -27,9 +27,9 @@ function getNodeUrl() {
 }
 
 const exprience1Backup = [{
-				years: '2016 - Present',
-                title: 'Full Stack Developer',
-                content: ['Hands on development in Java 8', 'AngularJS','ElasticSearch','SaaS development via AWS services', 'Spring', 'Hibernate over MySQL', 'C#'],
+				        years: '2016 - Present',
+                title: 'Team Leader',
+                content: ['Leading 4 team members', 'Hands on development in Java 8', 'AngularJS with Redux', 'TypeScript and ES6', 'ElasticSearch', 'Spring', 'Hibernate over MySQL'],              
                 imageName: 'panaya'
 }];
 
