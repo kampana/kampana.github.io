@@ -20,7 +20,7 @@ export default class CVPeronsalInformation extends React.Component {
                         </div>
                         <div>
                              <img src="../images/download.png" style={{marginRight:'0.5em'}}/>
-                             <a href="https://www.dropbox.com/s/spep4qqpz1aqe02/UriShmueliResume2017.pdf?dl=0">Download CV</a>
+                             <a href="https://www.dropbox.com/s/orn6obmfj9hm12a/UriShmueliResume2018.pdf?dl=0">Download CV</a>
                         </div>
 
                     </div>
