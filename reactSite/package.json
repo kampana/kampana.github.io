@@ -5,7 +5,9 @@
   "main": "reactSite.js",
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
-    "build": "webpack -p --config ./webpack.production.config.js"
+    "build": "webpack -p --config ./webpack.production.config.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
@@ -23,7 +25,8 @@
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -38,5 +41,6 @@
     "react-dom": "^15.3.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
-  }
+  },
+  "snyk": true
 }
